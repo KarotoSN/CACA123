@@ -2,18 +2,14 @@
 
 import { useState, useRef } from 'react'
 
-export default function Home() {
+export default function Component() {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   const handleVideoClick = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause()
-      } else {
-        videoRef.current.play()
-      }
-      setIsPlaying(!isPlaying)
+    if (videoRef.current && !isPlaying) {
+      videoRef.current.play()
+      setIsPlaying(true)
     }
   }
 
@@ -24,12 +20,12 @@ export default function Home() {
           <video
             ref={videoRef}
             className="absolute top-0 left-0 w-full h-full object-contain cursor-pointer"
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Revolver%20Green%20Screen%20Gun%20turning%201-AINMKWdERuxF9bMoKyFPj6hUqpBvfb.mp4"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/10225%20(1)-VTjNtttp1E7PqhOLsseOTVduQSO1Fa.mp4"
             onClick={handleVideoClick}
             loop
             playsInline
             muted
-            aria-label="Vidéo d'un revolver tournant sur fond vert"
+            aria-label="Vidéo personnalisée"
           >
             <track kind="captions" />
           </video>
