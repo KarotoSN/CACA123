@@ -13,6 +13,10 @@ export default function Component() {
     }
   }
 
+  const handleVideoEnded = () => {
+    setIsPlaying(false)
+  }
+
   return (
     <main className="flex min-h-screen items-center justify-center bg-white">
       <div className="w-full max-w-6xl aspect-video">
@@ -22,7 +26,7 @@ export default function Component() {
             className="absolute top-0 left-0 w-full h-full object-contain cursor-pointer"
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/10225%20(1)-VTjNtttp1E7PqhOLsseOTVduQSO1Fa.mp4"
             onClick={handleVideoClick}
-            loop
+            onEnded={handleVideoEnded}
             playsInline
             muted
             aria-label="Vidéo personnalisée"
